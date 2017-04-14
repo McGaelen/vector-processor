@@ -24,7 +24,7 @@ using pipes.  The result is stored in out_file.
 
 /* Catches the ^C signal to unpause the program. */
 void unpause(int signum);
-/* Adds two bit strings a and b and stroes the result in y. */
+/* Adds two bit strings a and b and stores the result in y. */
 int add(char const *a, char const *b, char *y);
 /* We know how much input we're working with */
 int numberSize, vectorSize;
@@ -122,11 +122,11 @@ int main(int argc, char *argv[])
                 temp = fgetc(b);
                 switch (temp) {
                     case '0':
-                    temp = '1'; break;
+                        temp = '1'; break;
                     case '1':
-                    temp = '0'; break;
+                        temp = '0'; break;
                     case '\n':
-                    i--; break; // Prevent loop from moving ahead if a newline is encountered.
+                        i--; break; // Prevent loop from moving ahead if a newline is encountered.
                 }
                 complement[i] = temp;
             }
@@ -270,6 +270,6 @@ int add(char const *a, char const *b, char *y)
 void unpause(int signum)
 {
     if (increm > 0)
-    fprintf(stderr, " Program unpaused.\n\n\n");
+        fprintf(stderr, " Program unpaused.\n\n\n");
     return;
 }
